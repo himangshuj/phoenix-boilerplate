@@ -1,5 +1,7 @@
 # PhoenixBoilerplate
+A opinionated take on boilerplate code for phoenix apps using alpinejs, tailwindcss and postgres
 
+## Local Dev instructions 
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
