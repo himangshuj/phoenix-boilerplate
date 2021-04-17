@@ -1,0 +1,42 @@
+name: Phoenix Boiler Plate Gh
+
+on:
+  push:
+    branches: [ * ]
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+    container: elixir:1.11.2
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+          MIX_ENV: test
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Pre-reqs
+        run: mix local.hex --force && mix local.rebar --force
+      - name: Install dependencies
+        run: mix deps.get
+      - name: Reset DB
+        run: mix ecto.reset
+        env:
+          # The hostname used to communicate with the PostgreSQL service container
+          DB_HOST: postgres
+          MIX_ENV: test
+      - name: Run tests
+        run: mix test
+        env:
+          # The hostname used to communicate with the PostgreSQL service container
+          DB_HOST: postgres
