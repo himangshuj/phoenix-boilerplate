@@ -2,7 +2,8 @@ name: Phoenix Boiler Plate Gh
 
 on:
   push:
-    branches: [ * ]
+    branches:
+      - main
 jobs:
   build:
     name: Build and test
