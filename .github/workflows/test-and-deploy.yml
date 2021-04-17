@@ -5,7 +5,7 @@ on:
     branches:
       - main
 jobs:
-  build:
+  test:
     name: Build and test
     runs-on: ubuntu-latest
     container: elixir:1.11.2
@@ -41,3 +41,15 @@ jobs:
         env:
           # The hostname used to communicate with the PostgreSQL service container
           DB_HOST: postgres
+  deploy:
+    needs: test # Will only run if the test job succeeds
+    if: github.ref == 'refs/heads/main' # Only run this job if it is on the main branch
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo pip install gigalixir --ignore-installed six
+      - run: gigalixir login -e "${{ secrets.GIGALIXIR_USERNAME }}" -y -p "${{ secrets.GIGALIXIR_PASSWORD }}"
+      - run: gigalixir git:remote ${{ secrets.GIGALIXIR_APP_NAME }}
+      - run: git push  gigalixir HEAD:refs/heads/master
