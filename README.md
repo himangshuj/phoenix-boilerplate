@@ -1,6 +1,8 @@
 # PhoenixBoilerplate
 A opinionated take on boilerplate code for phoenix apps using alpinejs, tailwindcss and postgres
 
+## Build Status
+[![Phoenix Boiler Plate Gh](https://github.com/himangshuj/phoenix-boilerplate/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/himangshuj/phoenix-boilerplate/actions/workflows/test-and-deploy.yml)
 ## Local Dev instructions 
 To start your Phoenix server:
 
