@@ -1,48 +1,105 @@
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>Ci updated Peace of mind from prototype to production</p>
+<div class="w-11/12 xl:w-full mx-auto pt-16" x-data="{tab: 'service'}" x-init="console.log('a')">
+  <div class="pt-4 pb-6 md:pb-8 lg:pb-10 xl:pb-12">
+    <p class="text-gray-500 text-lg uppercase leading-tight mb-4">Phoenix BoilerPlate</p>
+    <h1 class="xl:text-5xl text-3xl font-extrabold text-gray-800">Frequently Asked Questions</h1>
+  </div>
+  <div>
+    <div class="xl:hidden mb-8 relative">
+      <div class="absolute inset-0 m-auto mr-4 z-0 w-6 h-6">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-selector" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#A0AEC0" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" />
+          <polyline points="8 9 12 5 16 9" />
+          <polyline points="16 15 12 19 8 15" />
+        </svg>
+      </div>
+      <select aria-label="Selected tab" class="form-select block w-full p-3 border border-gray-300 rounded text-gray-600 appearance-none bg-transparent relative z-10">
+        <option class="text-sm text-gray-600">Products</option>
+        <option class="text-sm text-gray-600">Billing</option>
+        <option selected class="text-sm text-gray-600">Services</option>
+        <option class="text-sm text-gray-600">Portal</option>
+        <option class="text-sm text-gray-600">Customer Services</option>
+      </select>
+    </div>
+    <div class="w-full xl:w-6/12 hidden xl:block" >
+      <ul class="flex justify-between mb-2" >
+        <li x-bind:class="{ 'text-indigo-700': tab=='service' }" x-on:click="tab='service'" class="text-gray-500 xl:text-base text-sm cursor-pointer">Services</li>
+        <li x-bind:class="{ 'text-indigo-700': tab=='products' }" x-on:click="tab='products'" class="text-gray-500 xl:text-base text-sm cursor-pointer">Products</li>
+        <li x-bind:class="{ 'text-indigo-700': tab=='billing' }" x-on:click="tab='billing'" class="text-gray-500 xl:text-base text-sm cursor-pointer">Billing</li>
+        <li x-bind:class="{ 'text-indigo-700': tab=='portal' }" x-on:click="tab='portal'" class="text-gray-500 xl:text-base text-sm cursor-pointer">Portal</li>
+        <li x-bind:class="{ 'text-indigo-700': tab=='customer' }" x-on:click="tab='customer'" class="text-gray-500 xl:text-base text-sm cursor-pointer">Customer Services</li>
+      </ul>
+    </div>
+    <div class="relative h-2 bg-gray-200 rounded-lg mb-8 hidden xl:block">
+      <template x-if="tab=='service'">
+        <div id="active" class="transition ease-in-out duration-150 absolute h-2 bg-indigo-700 rounded-lg md:w-16 w-10" style="left: 0%; width: 4rem"></div>
+      </template>
+      <template x-if="tab=='products'">
+        <div id="active" class="transition ease-in-out duration-150 absolute h-2 bg-indigo-700 rounded-lg md:w-16 w-10" style="left: 10%; width: 5rem"></div>
+      </template>
+      <template x-if="tab=='billing'">
+        <div id="active"  class="transition ease-in-out duration-150 absolute h-2 bg-indigo-700 rounded-lg md:w-16 w-10" style="left: 20.5%; width: 4rem"></div>
+      </template>
+      <template x-if="tab=='portal'">
+        <div id="active"  class="transition ease-in-out duration-150 absolute h-2 bg-indigo-700 rounded-lg md:w-16 w-10" style="left: 30%; width: 4rem"></div>
+      </template>
+      <template x-if="tab=='customer'">
+        <div id="active" class="transition ease-in-out duration-150 absolute h-2 bg-indigo-700 rounded-lg md:w-16 w-10" style="left: 40%; width: 9rem"></div>
+      </template>
 
-  <form phx-change="suggest" phx-submit="search">
-    <input type="text" name="q" value="<%= @query %>" placeholder="Live dependency search" list="results" autocomplete="off"/>
-    <datalist id="results">
-      <%= for {app, _vsn} <- @results do %>
-        <option value="<%= app %>"><%= app %></option>
-      <% end %>
-    </datalist>
-    <button type="submit" phx-disable-with="Searching...">Go to Hexdocs</button>
-  </form>
-</section>
+    </div>
 
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md">v1.5 Changelog</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-      <li>
-        <a href="https://elixir-slackin.herokuapp.com/">Elixir on Slack</a>
-      </li>
-    </ul>
-  </article>
-</section>
+    <div class="mx-auto">
+      <ul class="bg-gray-100 rounded">
+        <li class="border-gray-200 border-solid border-b xl:p-8 lg:p-8 md:p-8 sm:p-8 p-4 rounded">
+          <p class="text-gray-800 text-2xl xl:w-10/12 w-full mb-4">What is Phoenix Boiler Plate?</p>
+          <p class="xl:w-10/12 w-full text-gray-600 text-base leading-8">An opinionated take on boilerplate code for phoenix apps using alpinejs, tailwindcss , postgres and gigalixir.
+          </p>
+        </li>
+        <li class="border-gray-200 border-solid border-b xl:p-8 lg:p-8 md:p-8 sm:p-8 p-4">
+          <p class="text-gray-800 text-2xl xl:w-10/12 w-full mb-4">What is this <strong>not</strong> the best stack?</p>
+          <p class="xl:w-10/12 w-full text-gray-600 text-base leading-8">I do not claim this is the best stack for web development but this is definitely the best stack for me
+            with my unique skill-set. I am a pro database engineer and backend developer who can hold his own on javascript, but I am very
+            bad in CSS. I love programming but am more interested in rolling out a product rather than solving more complicated algorithms.
+            I know devops and have done it as part of my job, but it is not something that excites me as a person as compared to a product that
+            solves a problem for a human being.</p>
+        </li>
+        <li class="border-gray-200 border-solid border-b xl:p-8 lg:p-8 md:p-8 sm:p-8 p-4">
+          <p class="text-gray-800 text-2xl xl:w-10/12 w-full mb-4">What is Phoenix?</p>
+          <p class="xl:w-10/12 lg:w-10/12 w-full text-gray-600 text-base leading-8">Phoenix in elixir is the fastest language for me to build a website. All major websites are essentially usable wrappers around CRUD
+            operations. Phoenix gives me out of the box scaffolding to convert my db design to functioning websites with intelligible validation messages.
+            It provides out of the box utilities for both dynamic UX using live-view and json apis. It helps that it is built on erlang vm which uses very less
+            memory and has high throughput. However, I will not use phoenix for image processing or machine learning.</p>
+        </li>
+        <li class="border-gray-200 border-solid border-b xl:p-8 lg:p-8 md:p-8 sm:p-8 p-4 rounded">
+          <p class="text-gray-800 text-2xl xl:w-10/12 w-full mb-4">Why Postgres?</p>
+          <p class="xl:w-10/12 lg:w-10/12 w-full text-gray-600 text-base leading-8">Since Oracle bought MYSQL, I have worked a lot on progress, and it remains my goto choice for reasonably priced database.</p>
+        </li>
+        <li class="border-gray-200 border-solid border-b xl:p-8 lg:p-8 md:p-8 sm:p-8 p-4 rounded">
+          <p class="text-gray-800 text-2xl xl:w-10/12 w-full mb-4">Why Gigalixir?</p>
+          <p class="xl:w-10/12 lg:w-10/12 w-full text-gray-600 text-base leading-8">
+            I love the simplicity of erstwhile php where I learned real world programming. I could focus on use case and just ftp the files.
+            Gigalixir is the nearest experience I had that resembles my early days of my ameteur programming. It is also free for a single project.
+          </p>
+        </li>
+        <li class="border-gray-200 border-solid border-b xl:p-8 lg:p-8 md:p-8 sm:p-8 p-4 rounded">
+          <p class="text-gray-800 text-2xl xl:w-10/12 w-full mb-4">Why TailWind?</p>
+          <p class="xl:w-10/12 lg:w-10/12 w-full text-gray-600 text-base leading-8">I hate CSS. I cannot center a div for the love of God. I recently bought a Tailwindui License and it has unshackled my programming abilities.</p>
+        </li>
+        <li class="border-gray-200 border-solid border-b xl:p-8 lg:p-8 md:p-8 sm:p-8 p-4 rounded">
+          <p class="text-gray-800 text-2xl xl:w-10/12 w-full mb-4">Why Postgres?</p>
+          <p class="xl:w-10/12 lg:w-10/12 w-full text-gray-600 text-base leading-8">Advanced TailWind requires some javascript. Tailwind works well with React and Angular and Alpine. Of the three, I am most familiar with React but
+            React does not go too well with Phoenix. I like to have end-to-end test cases for all my routes and html data interactions. This is not possible if some business
+            logic is handled by React and hence Alpine JS.</p>
+        </li>
+        <li class="border-gray-200 border-solid border-b xl:p-8 lg:p-8 md:p-8 sm:p-8 p-4 rounded">
+          <p class="text-gray-800 text-2xl xl:w-10/12 w-full mb-4">
+            Show me the code
+          </p>
+          <p class="xl:w-10/12 lg:w-10/12 w-full text-gray-600 text-base leading-8">
+            <a href="https://github.com/himangshuj/phoenix-boilerplate" target="_blank"></a> https://github.com/himangshuj/phoenix-boilerplate.
+            Released under MIT License</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
