@@ -26,7 +26,9 @@ React does not go too well with Phoenix. I like to have end-to-end test cases fo
   logic is handled by React and hence Alpine JS.
 
 ## Build Status
-[![Tests](https://github.com/himangshuj/phoenix-boilerplate/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/himangshuj/phoenix-boilerplate/actions/workflows/test.yml)## Local Dev instructions 
+[![Tests](https://github.com/himangshuj/phoenix-boilerplate/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/himangshuj/phoenix-boilerplate/actions/workflows/test.yml)
+
+## Local Dev instructions 
 
 To start your Phoenix server:
 
@@ -43,6 +45,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
     * APP_NAME
     * GIGALIXIR_USERNAME
     * GIGALIXIR_PASSWORD
+* Tag the desired commit with a tag start with v e.g: v0.1,v1.1 etc  
     
 ## Learn more
 
