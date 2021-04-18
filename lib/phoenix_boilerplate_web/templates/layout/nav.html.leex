@@ -1,7 +1,8 @@
 <!-- Navigation starts -->
 <!-- Mobile -->
-<div id="mobile-nav" class="w-full xl:hidden h-full absolute z-40">
-    <div class="bg-gray-800 opacity-50 inset-0 fixed w-full h-full" onclick="sidebarHandler(false)"></div>
+<section x-data="{ sideBarOpen: true }">
+<div id="mobile-nav" class="w-full xl:hidden h-full absolute z-40" x-show="sideBarOpen" >
+    <div class="bg-gray-800 opacity-50 inset-0 fixed w-full h-full"  x-on:click=" sideBarOpen = !sideBarOpen"></div>
     <div class="w-64 z-20 absolute left-0 z-40 top-0 bg-white shadow flex-col justify-between transition duration-150 ease-in-out h-full">
         <div class="flex flex-col justify-between h-full">
             <div class="px-6 pt-4 overflow-y-auto">
@@ -17,7 +18,7 @@
                         </svg>
                         <p class="text-bold md:text2xl text-base pl-3 text-gray-800">The North</p>
                     </div>
-                    <div id="cross" class="hidden text-gray-800" onclick="sidebarHandler(false)">
+                    <div id="cross" class="text-gray-800"   x-on:click=" sideBarOpen = !sideBarOpen">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
                             <line x1="18" y1="6" x2="6" y2="18" />
@@ -59,13 +60,13 @@
 
                                     <p class="text-gray-700 ml-3 text-lg">Products</p>
                                 </div>
-                                <div id="chevronup" onclick="listHandler(true)" class="ml-4">
+                                <div id="chevronup"  class="ml-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="14" height="14" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <polyline points="6 9 12 15 18 9" />
                                     </svg>
                                 </div>
-                                <div id="chevrondown" onclick="listHandler(false)" class="hidden ml-4">
+                                <div id="chevrondown" class="ml-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" width="14" height="14" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <polyline points="6 15 12 9 18 15" />
@@ -108,13 +109,13 @@
                                     <p class="text-gray-800 ml-3 text-lg">Deliverables</p>
                                 </div>
                                 <div>
-                                    <div id="chevronup2" onclick="listHandler2(true)" class="ml-4">
+                                    <div id="chevronup2" class="ml-4">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="14" height="14" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                             <polyline points="6 9 12 15 18 9" />
                                         </svg>
                                     </div>
-                                    <div id="chevrondown2" onclick="listHandler2(false)" class="hidden ml-4">
+                                    <div id="chevrondown2"  class="hidden ml-4">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-up" width="14" height="14" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                             <polyline points="6 15 12 9 18 15" />
@@ -210,7 +211,7 @@
                         <input class="border border-gray-100 focus:outline-none focus:border-indigo-700 w-56 rounded text-sm text-gray-500 bg-gray-100 pl-8 py-2" type="text" placeholder="Search" />
                     </div>
                 </div>
-                <div class="w-full h-full flex">
+                <div class="w-full h-full flex" x-data="{ isOpen: true }">
                     <div class="w-32 h-full flex items-center justify-center border-r cursor-pointer text-gray-600">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bell" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
@@ -218,8 +219,8 @@
                             <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
                         </svg>
                     </div>
-                    <div aria-haspopup="true" class="cursor-pointer w-full flex items-center justify-end relative" onclick="dropdownHandler(this)">
-                        <ul class="p-2 w-40 border-r bg-white absolute rounded z-40 left-0 shadow mt-64 hidden">
+                    <div aria-haspopup="true" class="cursor-pointer w-full flex items-center justify-end relative" >
+                        <ul class="p-2 w-40 border-r bg-white absolute rounded z-40 left-0 shadow mt-64" x-show="isOpen">
                             <li class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
                                 <div class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -248,15 +249,15 @@
                                 <span class="ml-2">Account Settings</span>
                             </li>
                         </ul>
-                        <img class="rounded h-10 w-10 object-cover" src="https://tuk-cdn.s3.amazonaws.com/assets/components/boxed_layout/bl_1.png" alt="logo" />
-                        <p class="text-gray-800 text-sm ml-2">Jane Doe</p>
+                        <img class="rounded h-10 w-10 object-cover" x-on:click=" isOpen = !isOpen" src="https://tuk-cdn.s3.amazonaws.com/assets/components/boxed_layout/bl_1.png" alt="logo" />
+                        <p class="text-gray-800 text-sm ml-2" x-on:click=" isOpen = !isOpen" >Jane Doe</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="visible xl:hidden flex items-center">
+        <div class="visible xl:hidden flex items-center" x-on:click=" sideBarOpen = true" x-show="!sideBarOpen">
             <div>
-                <div id="menu" class="text-gray-800" onclick="sidebarHandler(true)">
+                <div id="menu" class="text-gray-800" >
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <line x1="4" y1="6" x2="20" y2="6" />
@@ -268,5 +269,6 @@
         </div>
     </div>
 </nav>
+</section>
 <!-- Navigation ends -->
 <!-- Page title starts -->
