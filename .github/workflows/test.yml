@@ -1,4 +1,4 @@
-name: Phoenix Boiler Plate Gh
+name: Tests
 on:
   push:
     branches:

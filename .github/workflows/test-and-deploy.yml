@@ -1,5 +1,4 @@
-name: Phoenix Boiler Plate Gh
-
+name: Phx BP Test and Deploy to GE
 on:
   push:
     tags:
