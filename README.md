@@ -1,5 +1,5 @@
 # PhoenixBoilerplate
-An opinionated take on boilerplate code for phoenix apps using alpinejs, tailwindcss , postgres and gigalixir. 
+An opinionated take on boilerplate code for phoenix apps using alpinejs, tailwindcss , postgres ,gigalixir and github actions. 
 
 ## Rationale behind each choice. 
 
