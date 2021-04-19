@@ -14,7 +14,7 @@ operations. Phoenix gives me out of the box scaffolding to convert my db design 
 It provides out of the box utilities for both dynamic UX using live-view and json apis. It helps that it is built on erlang vm which uses very less
 memory and has high throughput. However, I will not use phoenix for image processing or machine learning. 
 
-* Postgres: Since Oracle bought MYSQL, I have worked a lot on progress, and it remains my goto choice for reasonably priced database. 
+* Postgres: Since Oracle bought MYSQL, I have worked a lot on postgresql, and it remains my goto choice for reasonably priced database. 
 
 * Gigalixir: I love the simplicity of erstwhile php where I learned real world programming. I could focus on use case and just ftp the files. 
 Gigalixir is the nearest experience I had that resembles my early days of my ameteur programming. It is also free for a single project.
