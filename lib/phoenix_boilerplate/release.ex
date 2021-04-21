@@ -1,4 +1,7 @@
 defmodule PhoenixBoilerplate.Release do
+  require Logger
+  @app :phoenix_boilerplate
+  
   @moduledoc false
   def migrate do
     load_app()
