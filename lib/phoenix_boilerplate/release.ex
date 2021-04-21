@@ -31,6 +31,11 @@ defmodule PhoenixBoilerplate.Release do
   @doc """
   Populates seed data. This will run every time we start the app and needs to be idempotent
   """
+  alias PhoenixBoilerplate.BoilerplateDataManagement
   def seed_data() do
+    case BoilerplateDataManagement.list_boiler_plate_datas() do
+      [] -> BoilerplateDataManagement.create_boilerplate_data(%{name: "Seed Data", description: "Seed Data successful"})
+      [_hd|_] -> _hd
+    end
   end
 end

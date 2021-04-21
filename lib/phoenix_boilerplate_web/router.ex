@@ -20,6 +20,11 @@ defmodule PhoenixBoilerplateWeb.Router do
     live "/", PageLive, :index
   end
 
+  scope "/api", PhoenixBoilerplateWeb.Api, as: :api do
+    pipe_through :api
+    get "/boiler_plate_datas", BoilerplateDataController, :index
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", PhoenixBoilerplateWeb do
   #   pipe_through :api
