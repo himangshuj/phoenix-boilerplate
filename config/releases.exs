@@ -21,6 +21,6 @@ secret_key_base =
 config :phoenix_boilerplate, PhoenixBoilerplateWeb.Endpoint,
        url: [host: nil, port: 80],
        server: true,
-       http: [port: {:system, "PORT"}], 
+       http: [port: {:system, "PORT"}],
        force_ssl: [rewrite_on: [:x_forwarded_proto]],
        cache_static_manifest: "priv/static/cache_manifest.json"
